@@ -1,15 +1,25 @@
 # stETH Operator MCP
 
-- **Repo:** `Synthesis-Lido-MCPServer`
+- **Repo:** [Synthesis-Lido-MCPServer](https://github.com/CrystallineButterfly/Synthesis-Lido-MCPServer)
 - **Primary track:** Lido MCP Server
 - **Category:** mcp
+- **Primary contract:** `LidoOperatorRegistry`
+- **Primary module:** `lido_mcp_server`
 - **Submission status:** implementation ready, waiting for credentials and TxIDs.
+
+## What this repo does
 
 An agent-friendly MCP server for staking, wrapping, rewards, governance, and dry-run verbs with explicit policy envelopes and audit logs.
 
-## Selected concept
+## Why this build matters
 
 A local MCP server exposes stake, wrap, rewards, governance, and dry-run verbs with explicit policy envelopes. The supporting contract tracks approved operator intents while the Python server keeps compute budgets and audit logs tied to every call.
+
+## Submission fit
+
+- **Primary track:** Lido MCP Server
+- **Overlap targets:** MetaMask Delegations, Ampersend, OpenServ, YieldGuard, Bankr Gateway
+- **Partners covered:** Lido MCP Server, MetaMask Delegations, Ampersend, OpenServ, Bankr Gateway
 
 ## Idea shortlist
 
@@ -17,11 +27,7 @@ A local MCP server exposes stake, wrap, rewards, governance, and dry-run verbs w
 2. Dry-Run First Treasury Adapter
 3. Governance-Aware Yield MCP
 
-## Partners covered
-
-Lido MCP Server, MetaMask Delegations, Ampersend, OpenServ, Bankr Gateway
-
-## Architecture
+## System graph
 
 ```mermaid
 flowchart TD
@@ -38,14 +44,36 @@ flowchart TD
     Contract --> bankr_gateway[Bankr Gateway]
 ```
 
-## Repository layout
+## Repository contents
 
-- `src/`: shared policy contracts plus the repo-specific wrapper contract.
-- `script/`: Foundry deployment entrypoint.
-- `agents/`: Python runtime, partner adapters, and project metadata.
-- `scripts/`: CLI utilities for running the loop and rendering submissions.
-- `docs/`: architecture, credentials, demo script, and security notes.
-- `submissions/`: generated `synthesis.md` snippet for this repo.
+| Path | What it contains |
+| --- | --- |
+| `src/` | Shared policy contracts plus the repo-specific wrapper contract. |
+| `script/Deploy.s.sol` | Foundry deployment entrypoint for the policy contract. |
+| `agents/` | Python runtime, project spec, env handling, and partner adapters. |
+| `scripts/` | Terminal entrypoints for run, demo planning, and submission rendering. |
+| `docs/` | Architecture, credentials, security notes, and demo steps. |
+| `submissions/` | Generated `synthesis.md` snippet for this repo. |
+| `test/` | Foundry tests for the Solidity control layer. |
+| `tests/` | Python tests for runtime and project context. |
+| `agent.json` | Submission-facing agent manifest. |
+| `agent_log.json` | Local execution log and status trail. |
+
+## Autonomy loop
+
+1. Discover signals relevant to the repo track and its overlap targets.
+2. Build a bounded plan with per-action and compute caps.
+3. Persist a dry-run artifact before any live execution.
+4. Enforce onchain policy through the guarded contract wrapper.
+5. Verify outputs, update receipts, and render submission material.
+
+## Security controls
+
+- Admin-managed allowlists for targets and selectors.
+- Per-action caps, daily caps, cooldown windows, and a principal floor.
+- Reporter-only receipt anchoring and proof attachment.
+- Env-only secrets; no committed private keys or partner tokens.
+- Pause switch plus dry-run-first execution flow.
 
 ## Action catalog
 
@@ -56,6 +84,18 @@ flowchart TD
 | `ampersend_settlement_bundle` | Ampersend | Use Ampersend for a bounded action in this repo. | $25 | medium |
 | `openserv_job_dispatch` | OpenServ | Use OpenServ for a bounded action in this repo. | $10 | medium |
 | `bankr_gateway_compute_route` | Bankr Gateway | Use Bankr Gateway for a bounded action in this repo. | $10 | high |
+
+## Local terminal flow (Anvil + Sepolia)
+
+```bash
+export SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/YOUR_KEY
+anvil --fork-url "$SEPOLIA_RPC_URL" --chain-id 11155111
+cp .env.example .env
+# keep private keys only in .env; TODO.md stays local-only too
+forge script script/Deploy.s.sol --rpc-url "$RPC_URL" --broadcast
+python3 scripts/run_agent.py
+python3 scripts/render_submission.py
+```
 
 ## Commands
 
