@@ -1,6 +1,6 @@
 # stETH Operator MCP
 
-- **Repo:** https://github.com/CrystallineButterfly/Synthesis-Lido-MCPServer
+- **Repo:** TODO_GITHUB_URL/Synthesis-Lido-MCPServer
 - **Primary track:** Lido MCP Server
 - **Overlap targets:** MetaMask Delegations, Ampersend, OpenServ, YieldGuard, Bankr Gateway
 - **Primary contract:** LidoOperatorRegistry
@@ -18,10 +18,10 @@ An agent-friendly MCP server for staking, wrapping, rewards, governance, and dry
   "status": "verified",
   "project_name": "stETH Operator MCP",
   "track": "Lido MCP Server",
-  "plan_id": "0x25b227b0185e70b7cc73d159eb741cfde25208039f832a3bf1f1e1c512f2dc08",
-  "simulation_hash": "0xd8cede2c879fa1207c7494d40a9510aa2e72d7bae65e60b6d92ee35a69b49a31",
+  "plan_id": "0xd26586a6d66e1df998293b47e20648be43a64eb92fbe4e5da607088302e0c895",
+  "simulation_hash": "0xcddba3d7f02901e4f238c718d399151ab138a4e51d6643bac53ec946be220d11",
   "execution_status": "awaiting_credentials",
   "tx_ids": [],
-  "created_at": "2026-03-18T21:44:01+00:00"
+  "created_at": "2026-03-18T23:01:15+00:00"
 }
 ```
