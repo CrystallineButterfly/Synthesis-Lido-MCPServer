@@ -1,6 +1,6 @@
 # stETH Operator MCP
 
-- **Repo:** TODO_GITHUB_URL/Synthesis-Lido-MCPServer
+- **Repo:** https://github.com/CrystallineButterfly/Synthesis-Lido-MCPServer
 - **Primary track:** Lido MCP Server
 - **Overlap targets:** MetaMask Delegations, Ampersend, OpenServ, YieldGuard, Bankr Gateway
 - **Primary contract:** LidoOperatorRegistry
