@@ -1,26 +1,136 @@
-"""Project-specific context module."""
+"""Project-specific metadata for the local runtime."""
 
-from __future__ import annotations
+from agents.models import ProjectSpec
 
-PROJECT_CONTEXT = {
-  "project_name": "stETH Operator MCP",
-  "track": "Lido MCP Server",
-  "pitch": "An agent-friendly MCP server for staking, wrapping, rewards, governance, and dry-run verbs with explicit policy envelopes and audit logs.",
-  "overlap_targets": [
-    "MetaMask Delegations",
-    "Ampersend",
-    "OpenServ",
-    "YieldGuard",
-    "Bankr Gateway"
-  ],
-  "goals": [
-    "discover a bounded opportunity",
-    "plan a dry-run-first action",
-    "verify receipts and proofs"
-  ]
-}
+PROJECT_CONTEXT = {'repo_name': 'Synthesis-Lido-MCPServer',
+ 'project_name': 'stETH Operator MCP',
+ 'track': 'Lido MCP Server',
+ 'pitch': 'An agent-friendly MCP server for staking, wrapping, rewards, governance, '
+          'and dry-run verbs with explicit policy envelopes and audit logs.',
+ 'idea_titles': ['Agent-Friendly Stake Server',
+                 'Dry-Run First Treasury Adapter',
+                 'Governance-Aware Yield MCP'],
+ 'architecture_summary': 'A local MCP server exposes stake, wrap, rewards, governance, '
+                         'and dry-run verbs with explicit policy envelopes. The '
+                         'supporting contract tracks approved operator intents while '
+                         'the Python server keeps compute budgets and audit logs tied '
+                         'to every call.',
+ 'overlap_targets': ['MetaMask Delegations',
+                     'Ampersend',
+                     'OpenServ',
+                     'YieldGuard',
+                     'Bankr Gateway'],
+ 'primary_contract_name': 'LidoOperatorRegistry',
+ 'primary_python_module': 'lido_mcp_server',
+ 'category': 'mcp',
+ 'daily_budget_usd': 90,
+ 'per_action_budget_usd': 22,
+ 'cooldown_seconds': 900,
+ 'discovery_inputs': [{'name': 'tool_catalog',
+                       'description': 'Available verbs, dry-run coverage, and '
+                                      'guardrails.'},
+                      {'name': 'policy_envelope',
+                       'description': 'Allowed verbs and bounded spend windows.'},
+                      {'name': 'execution_bundle',
+                       'description': 'Prepared MCP requests and dry-run artifacts.'},
+                      {'name': 'receipts',
+                       'description': 'Invocation receipts and release notes.'}],
+ 'live_demo_steps': ['Copy .env.example to .env and fill the required keys.',
+                     'Deploy the contract with forge script script/Deploy.s.sol '
+                     '--broadcast for LidoOperatorRegistry.',
+                     'Run python3 scripts/run_agent.py to produce a dry run for '
+                     'lido_mcp_server.',
+                     'Set LIVE_MODE=true and rerun python3 scripts/run_agent.py with '
+                     'real credentials.',
+                     'Run python3 scripts/render_submission.py and attach TxIDs plus '
+                     'repo links.'],
+ 'partners': [{'name': 'Lido MCP Server',
+               'docs_url': 'https://docs.lido.fi/',
+               'env_vars': ['RPC_URL'],
+               'endpoint_env': '',
+               'action_kind': 'contract_call',
+               'purpose': 'Call MCP-style Lido verbs behind policy envelopes.'},
+              {'name': 'MetaMask Delegations',
+               'docs_url': 'https://docs.metamask.io/delegation-toolkit/',
+               'env_vars': ['RPC_URL'],
+               'endpoint_env': '',
+               'action_kind': 'contract_call',
+               'purpose': 'Enforce delegation scopes, expiries, and intent envelopes.'},
+              {'name': 'Ampersend',
+               'docs_url': 'https://docs.ampersend.ai/',
+               'env_vars': ['AMPERSEND_API_KEY', 'AMPERSEND_PAYMENT_URL'],
+               'endpoint_env': 'AMPERSEND_PAYMENT_URL',
+               'action_kind': 'rest_json',
+               'purpose': 'Bundle payment and transport metadata for downstream '
+                          'agents.'},
+              {'name': 'OpenServ',
+               'docs_url': 'https://docs.openserv.ai/',
+               'env_vars': ['OPENSERV_API_KEY', 'OPENSERV_AGENT_URL'],
+               'endpoint_env': 'OPENSERV_AGENT_URL',
+               'action_kind': 'rest_json',
+               'purpose': 'Dispatch jobs and expose swarm service endpoints.'},
+              {'name': 'Bankr Gateway',
+               'docs_url': 'https://bankr.bot/',
+               'env_vars': ['BANKR_API_KEY',
+                            'BANKR_CHAT_COMPLETIONS_URL',
+                            'BANKR_MODEL'],
+               'endpoint_env': 'BANKR_CHAT_COMPLETIONS_URL',
+               'action_kind': 'rest_json',
+               'purpose': 'Route inference through cost-aware model selection.'}],
+ 'actions': [{'id': 'lido_mcp_server_mcp_call',
+              'target': 'lido_mcp_server',
+              'purpose': 'Use Lido MCP Server for a bounded action in this repo.',
+              'partner': 'Lido MCP Server',
+              'action_kind': 'contract_call',
+              'max_amount_usd': 2,
+              'priority': 100,
+              'sensitivity': 'medium',
+              'notes': ['Call Lido MCP Server only after a dry-run artifact exists.',
+                        'Use https://docs.lido.fi/ for credential setup.']},
+             {'id': 'metamask_delegations_delegate_scope',
+              'target': 'metamask_delegations',
+              'purpose': 'Use MetaMask Delegations for a bounded action in this repo.',
+              'partner': 'MetaMask Delegations',
+              'action_kind': 'contract_call',
+              'max_amount_usd': 2,
+              'priority': 95,
+              'sensitivity': 'high',
+              'notes': ['Call MetaMask Delegations only after a dry-run artifact '
+                        'exists.',
+                        'Use https://docs.metamask.io/delegation-toolkit/ for '
+                        'credential setup.']},
+             {'id': 'ampersend_settlement_bundle',
+              'target': 'ampersend',
+              'purpose': 'Use Ampersend for a bounded action in this repo.',
+              'partner': 'Ampersend',
+              'action_kind': 'rest_json',
+              'max_amount_usd': 25,
+              'priority': 90,
+              'sensitivity': 'medium',
+              'notes': ['Call Ampersend only after a dry-run artifact exists.',
+                        'Use https://docs.ampersend.ai/ for credential setup.']},
+             {'id': 'openserv_job_dispatch',
+              'target': 'openserv',
+              'purpose': 'Use OpenServ for a bounded action in this repo.',
+              'partner': 'OpenServ',
+              'action_kind': 'rest_json',
+              'max_amount_usd': 10,
+              'priority': 85,
+              'sensitivity': 'medium',
+              'notes': ['Call OpenServ only after a dry-run artifact exists.',
+                        'Use https://docs.openserv.ai/ for credential setup.']},
+             {'id': 'bankr_gateway_compute_route',
+              'target': 'bankr_gateway',
+              'purpose': 'Use Bankr Gateway for a bounded action in this repo.',
+              'partner': 'Bankr Gateway',
+              'action_kind': 'rest_json',
+              'max_amount_usd': 10,
+              'priority': 80,
+              'sensitivity': 'high',
+              'notes': ['Call Bankr Gateway only after a dry-run artifact exists.',
+                        'Use https://bankr.bot/ for credential setup.']}]}
 
 
-def seed_targets() -> list[str]:
-    """Return the first batch of overlap targets for planning."""
-    return list(PROJECT_CONTEXT['overlap_targets'])
+def build_project_spec() -> ProjectSpec:
+    """Return the repository-specific project metadata."""
+    return ProjectSpec.from_dict(PROJECT_CONTEXT)
