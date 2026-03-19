@@ -7,5 +7,555 @@
     "details": {
       "status": "ready_for_credentials"
     }
+  },
+  {
+    "timestamp": "2026-03-19T03:30:09+00:00",
+    "stage": "discover",
+    "actor": "agent_runtime",
+    "message": "Ranked local signals.",
+    "details": {
+      "signals": [
+        {
+          "name": "tool_catalog",
+          "description": "Available verbs, dry-run coverage, and guardrails.",
+          "score": 95
+        },
+        {
+          "name": "policy_envelope",
+          "description": "Allowed verbs and bounded spend windows.",
+          "score": 90
+        },
+        {
+          "name": "execution_bundle",
+          "description": "Prepared MCP requests and dry-run artifacts.",
+          "score": 85
+        },
+        {
+          "name": "receipts",
+          "description": "Invocation receipts and release notes.",
+          "score": 80
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:30:09+00:00",
+    "stage": "plan",
+    "actor": "agent_runtime",
+    "message": "Built bounded plan.",
+    "details": {
+      "plan_id": "0x473086b9cdb144afffebc4a911a9318d78ce4cf2a7af059fe970d91c260dc570"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:30:09+00:00",
+    "stage": "dry_run",
+    "actor": "agent_runtime",
+    "message": "Prepared partner previews.",
+    "details": {
+      "simulation_hash": "0xc075993090f08373192e51aae134a17902dca33a0e8edaf2b79cd43e1ab3b443"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:30:09+00:00",
+    "stage": "execute",
+    "actor": "agent_runtime",
+    "message": "Skipped live execution.",
+    "details": {
+      "missing_env": [
+        "AMPERSEND_API_KEY",
+        "AMPERSEND_PAYMENT_URL",
+        "BANKR_API_KEY",
+        "BANKR_CHAT_COMPLETIONS_URL",
+        "BANKR_MODEL",
+        "OPENSERV_AGENT_URL",
+        "OPENSERV_API_KEY",
+        "RPC_URL"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:30:09+00:00",
+    "stage": "verify",
+    "actor": "agent_runtime",
+    "message": "Wrote verification.",
+    "details": {
+      "status": "verified",
+      "project_name": "stETH Operator MCP",
+      "track": "Lido MCP Server",
+      "plan_id": "0x473086b9cdb144afffebc4a911a9318d78ce4cf2a7af059fe970d91c260dc570",
+      "simulation_hash": "0xc075993090f08373192e51aae134a17902dca33a0e8edaf2b79cd43e1ab3b443",
+      "execution_status": "awaiting_credentials",
+      "tx_ids": [],
+      "created_at": "2026-03-19T03:30:09+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:30:09+00:00",
+    "stage": "discover",
+    "actor": "agent_runtime",
+    "message": "Ranked local signals.",
+    "details": {
+      "signals": [
+        {
+          "name": "tool_catalog",
+          "description": "Available verbs, dry-run coverage, and guardrails.",
+          "score": 95
+        },
+        {
+          "name": "policy_envelope",
+          "description": "Allowed verbs and bounded spend windows.",
+          "score": 90
+        },
+        {
+          "name": "execution_bundle",
+          "description": "Prepared MCP requests and dry-run artifacts.",
+          "score": 85
+        },
+        {
+          "name": "receipts",
+          "description": "Invocation receipts and release notes.",
+          "score": 80
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:30:09+00:00",
+    "stage": "plan",
+    "actor": "agent_runtime",
+    "message": "Built bounded plan.",
+    "details": {
+      "plan_id": "0x473086b9cdb144afffebc4a911a9318d78ce4cf2a7af059fe970d91c260dc570"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:30:09+00:00",
+    "stage": "dry_run",
+    "actor": "agent_runtime",
+    "message": "Prepared partner previews.",
+    "details": {
+      "simulation_hash": "0xc075993090f08373192e51aae134a17902dca33a0e8edaf2b79cd43e1ab3b443"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:30:09+00:00",
+    "stage": "execute",
+    "actor": "agent_runtime",
+    "message": "Skipped live execution.",
+    "details": {
+      "missing_env": [
+        "AMPERSEND_API_KEY",
+        "AMPERSEND_PAYMENT_URL",
+        "BANKR_API_KEY",
+        "BANKR_CHAT_COMPLETIONS_URL",
+        "BANKR_MODEL",
+        "OPENSERV_AGENT_URL",
+        "OPENSERV_API_KEY",
+        "RPC_URL"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:30:09+00:00",
+    "stage": "verify",
+    "actor": "agent_runtime",
+    "message": "Wrote verification.",
+    "details": {
+      "status": "verified",
+      "project_name": "stETH Operator MCP",
+      "track": "Lido MCP Server",
+      "plan_id": "0x473086b9cdb144afffebc4a911a9318d78ce4cf2a7af059fe970d91c260dc570",
+      "simulation_hash": "0xc075993090f08373192e51aae134a17902dca33a0e8edaf2b79cd43e1ab3b443",
+      "execution_status": "awaiting_credentials",
+      "tx_ids": [],
+      "created_at": "2026-03-19T03:30:09+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:39:23.678178+00:00",
+    "stage": "security_review",
+    "actor": "audit_pass",
+    "message": "Completed the shared hardening and offline-artifact audit pass.",
+    "details": {
+      "status": "audited_ready_pending_live_credentials",
+      "primary_contract": "LidoOperatorRegistry.sol"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:48:52+00:00",
+    "stage": "discover",
+    "actor": "agent_runtime",
+    "message": "Ranked local signals.",
+    "details": {
+      "signals": [
+        {
+          "name": "tool_catalog",
+          "description": "Available verbs, dry-run coverage, and guardrails.",
+          "score": 95
+        },
+        {
+          "name": "policy_envelope",
+          "description": "Allowed verbs and bounded spend windows.",
+          "score": 90
+        },
+        {
+          "name": "execution_bundle",
+          "description": "Prepared MCP requests and dry-run artifacts.",
+          "score": 85
+        },
+        {
+          "name": "receipts",
+          "description": "Invocation receipts and release notes.",
+          "score": 80
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:48:52+00:00",
+    "stage": "plan",
+    "actor": "agent_runtime",
+    "message": "Built bounded plan for every repo action.",
+    "details": {
+      "plan_id": "0x377699bec4a748250c07b3059d1bc81d9cd1f931e4befc89b589226aea6602e7",
+      "action_count": 5
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:48:52+00:00",
+    "stage": "dry_run",
+    "actor": "agent_runtime",
+    "message": "Prepared partner previews.",
+    "details": {
+      "simulation_hash": "0x3721fa6e56ef42b5fc2e6a9f0d740c510c287eddc8f021be4ceb23ec0f64de7c"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:48:52+00:00",
+    "stage": "execute",
+    "actor": "agent_runtime",
+    "message": "Prepared offline artifacts and skipped network execution.",
+    "details": {
+      "missing_env": [
+        "AMPERSEND_API_KEY",
+        "AMPERSEND_PAYMENT_URL",
+        "BANKR_API_KEY",
+        "BANKR_CHAT_COMPLETIONS_URL",
+        "BANKR_MODEL",
+        "OPENSERV_AGENT_URL",
+        "OPENSERV_API_KEY"
+      ],
+      "artifact_count": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:48:52+00:00",
+    "stage": "verify",
+    "actor": "agent_runtime",
+    "message": "Wrote verification.",
+    "details": {
+      "status": "verified",
+      "project_name": "stETH Operator MCP",
+      "track": "Lido MCP Server",
+      "plan_id": "0x377699bec4a748250c07b3059d1bc81d9cd1f931e4befc89b589226aea6602e7",
+      "simulation_hash": "0x3721fa6e56ef42b5fc2e6a9f0d740c510c287eddc8f021be4ceb23ec0f64de7c",
+      "execution_status": "offline_prepared",
+      "tx_ids": [],
+      "artifact_paths": [
+        "artifacts/onchain_intents/lido_mcp_server_mcp_call.json",
+        "artifacts/onchain_intents/metamask_delegations_delegate_scope.json"
+      ],
+      "partner_statuses": {
+        "Lido MCP Server": "prepared_contract_call",
+        "MetaMask Delegations": "prepared_contract_call",
+        "Ampersend": "awaiting_credentials",
+        "OpenServ": "awaiting_credentials",
+        "Bankr Gateway": "awaiting_credentials"
+      },
+      "created_at": "2026-03-19T03:48:52+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:50:43+00:00",
+    "stage": "discover",
+    "actor": "agent_runtime",
+    "message": "Ranked local signals.",
+    "details": {
+      "signals": [
+        {
+          "name": "tool_catalog",
+          "description": "Available verbs, dry-run coverage, and guardrails.",
+          "score": 95
+        },
+        {
+          "name": "policy_envelope",
+          "description": "Allowed verbs and bounded spend windows.",
+          "score": 90
+        },
+        {
+          "name": "execution_bundle",
+          "description": "Prepared MCP requests and dry-run artifacts.",
+          "score": 85
+        },
+        {
+          "name": "receipts",
+          "description": "Invocation receipts and release notes.",
+          "score": 80
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:50:43+00:00",
+    "stage": "plan",
+    "actor": "agent_runtime",
+    "message": "Built bounded plan for every repo action.",
+    "details": {
+      "plan_id": "0x1ef7b01b93c63c18eff3e5b77c483a7c746d12fe83e857cd2e9eba1b7b59321d",
+      "action_count": 5
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:50:43+00:00",
+    "stage": "dry_run",
+    "actor": "agent_runtime",
+    "message": "Prepared partner previews.",
+    "details": {
+      "simulation_hash": "0x88324b6722dbf30abced131ef24ee05e56985ee82c0ed514e82665846c28f749"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:50:43+00:00",
+    "stage": "execute",
+    "actor": "agent_runtime",
+    "message": "Prepared offline artifacts and skipped network execution.",
+    "details": {
+      "missing_env": [
+        "AMPERSEND_API_KEY",
+        "AMPERSEND_PAYMENT_URL",
+        "BANKR_API_KEY",
+        "BANKR_CHAT_COMPLETIONS_URL",
+        "BANKR_MODEL",
+        "OPENSERV_AGENT_URL",
+        "OPENSERV_API_KEY"
+      ],
+      "artifact_count": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:50:43+00:00",
+    "stage": "verify",
+    "actor": "agent_runtime",
+    "message": "Wrote verification.",
+    "details": {
+      "status": "verified",
+      "project_name": "stETH Operator MCP",
+      "track": "Lido MCP Server",
+      "plan_id": "0x1ef7b01b93c63c18eff3e5b77c483a7c746d12fe83e857cd2e9eba1b7b59321d",
+      "simulation_hash": "0x88324b6722dbf30abced131ef24ee05e56985ee82c0ed514e82665846c28f749",
+      "execution_status": "offline_prepared",
+      "tx_ids": [],
+      "artifact_paths": [
+        "artifacts/onchain_intents/lido_mcp_server_mcp_call.json",
+        "artifacts/onchain_intents/metamask_delegations_delegate_scope.json"
+      ],
+      "partner_statuses": {
+        "Lido MCP Server": "prepared_contract_call",
+        "MetaMask Delegations": "prepared_contract_call",
+        "Ampersend": "awaiting_credentials",
+        "OpenServ": "awaiting_credentials",
+        "Bankr Gateway": "awaiting_credentials"
+      },
+      "created_at": "2026-03-19T03:50:43+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:51:47+00:00",
+    "stage": "discover",
+    "actor": "agent_runtime",
+    "message": "Ranked local signals.",
+    "details": {
+      "signals": [
+        {
+          "name": "tool_catalog",
+          "description": "Available verbs, dry-run coverage, and guardrails.",
+          "score": 95
+        },
+        {
+          "name": "policy_envelope",
+          "description": "Allowed verbs and bounded spend windows.",
+          "score": 90
+        },
+        {
+          "name": "execution_bundle",
+          "description": "Prepared MCP requests and dry-run artifacts.",
+          "score": 85
+        },
+        {
+          "name": "receipts",
+          "description": "Invocation receipts and release notes.",
+          "score": 80
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:51:47+00:00",
+    "stage": "plan",
+    "actor": "agent_runtime",
+    "message": "Built bounded plan for every repo action.",
+    "details": {
+      "plan_id": "0xdcdba2990210a92bcaf3c0bfb3337d5c22f1bef4519674ba0baa841edb0c7649",
+      "action_count": 5
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:51:47+00:00",
+    "stage": "dry_run",
+    "actor": "agent_runtime",
+    "message": "Prepared partner previews.",
+    "details": {
+      "simulation_hash": "0xbead896283decda762e2b992231dec8859d5fd385667b0182951be4fe87ff13a"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:51:47+00:00",
+    "stage": "execute",
+    "actor": "agent_runtime",
+    "message": "Prepared offline artifacts and skipped network execution.",
+    "details": {
+      "missing_env": [
+        "AMPERSEND_API_KEY",
+        "AMPERSEND_PAYMENT_URL",
+        "BANKR_API_KEY",
+        "BANKR_CHAT_COMPLETIONS_URL",
+        "BANKR_MODEL",
+        "OPENSERV_AGENT_URL",
+        "OPENSERV_API_KEY"
+      ],
+      "artifact_count": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:51:47+00:00",
+    "stage": "verify",
+    "actor": "agent_runtime",
+    "message": "Wrote verification.",
+    "details": {
+      "status": "verified",
+      "project_name": "stETH Operator MCP",
+      "track": "Lido MCP Server",
+      "plan_id": "0xdcdba2990210a92bcaf3c0bfb3337d5c22f1bef4519674ba0baa841edb0c7649",
+      "simulation_hash": "0xbead896283decda762e2b992231dec8859d5fd385667b0182951be4fe87ff13a",
+      "execution_status": "offline_prepared",
+      "tx_ids": [],
+      "artifact_paths": [
+        "artifacts/onchain_intents/lido_mcp_server_mcp_call.json",
+        "artifacts/onchain_intents/metamask_delegations_delegate_scope.json"
+      ],
+      "partner_statuses": {
+        "Lido MCP Server": "prepared_contract_call",
+        "MetaMask Delegations": "prepared_contract_call",
+        "Ampersend": "awaiting_credentials",
+        "OpenServ": "awaiting_credentials",
+        "Bankr Gateway": "awaiting_credentials"
+      },
+      "created_at": "2026-03-19T03:51:47+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:52:13+00:00",
+    "stage": "discover",
+    "actor": "agent_runtime",
+    "message": "Ranked local signals.",
+    "details": {
+      "signals": [
+        {
+          "name": "tool_catalog",
+          "description": "Available verbs, dry-run coverage, and guardrails.",
+          "score": 95
+        },
+        {
+          "name": "policy_envelope",
+          "description": "Allowed verbs and bounded spend windows.",
+          "score": 90
+        },
+        {
+          "name": "execution_bundle",
+          "description": "Prepared MCP requests and dry-run artifacts.",
+          "score": 85
+        },
+        {
+          "name": "receipts",
+          "description": "Invocation receipts and release notes.",
+          "score": 80
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:52:13+00:00",
+    "stage": "plan",
+    "actor": "agent_runtime",
+    "message": "Built bounded plan for every repo action.",
+    "details": {
+      "plan_id": "0xda281d09205af0570c1dcf9543849861754ffc8e95a528be72ed4c95bd3fde95",
+      "action_count": 5
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:52:13+00:00",
+    "stage": "dry_run",
+    "actor": "agent_runtime",
+    "message": "Prepared partner previews.",
+    "details": {
+      "simulation_hash": "0x745d390f7616e73e80555ab45bb14b0870c4103df02e8ee083cc38249f775ac6"
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:52:13+00:00",
+    "stage": "execute",
+    "actor": "agent_runtime",
+    "message": "Prepared offline artifacts and skipped network execution.",
+    "details": {
+      "missing_env": [
+        "AMPERSEND_API_KEY",
+        "AMPERSEND_PAYMENT_URL",
+        "BANKR_API_KEY",
+        "BANKR_CHAT_COMPLETIONS_URL",
+        "BANKR_MODEL",
+        "OPENSERV_AGENT_URL",
+        "OPENSERV_API_KEY"
+      ],
+      "artifact_count": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-19T03:52:13+00:00",
+    "stage": "verify",
+    "actor": "agent_runtime",
+    "message": "Wrote verification.",
+    "details": {
+      "status": "verified",
+      "project_name": "stETH Operator MCP",
+      "track": "Lido MCP Server",
+      "plan_id": "0xda281d09205af0570c1dcf9543849861754ffc8e95a528be72ed4c95bd3fde95",
+      "simulation_hash": "0x745d390f7616e73e80555ab45bb14b0870c4103df02e8ee083cc38249f775ac6",
+      "execution_status": "offline_prepared",
+      "tx_ids": [],
+      "artifact_paths": [
+        "artifacts/onchain_intents/lido_mcp_server_mcp_call.json",
+        "artifacts/onchain_intents/metamask_delegations_delegate_scope.json"
+      ],
+      "partner_statuses": {
+        "Lido MCP Server": "prepared_contract_call",
+        "MetaMask Delegations": "prepared_contract_call",
+        "Ampersend": "awaiting_credentials",
+        "OpenServ": "awaiting_credentials",
+        "Bankr Gateway": "awaiting_credentials"
+      },
+      "created_at": "2026-03-19T03:52:13+00:00"
+    }
   }
 ]
