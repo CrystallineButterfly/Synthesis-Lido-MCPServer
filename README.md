@@ -5,7 +5,7 @@
 - **Category:** mcp
 - **Primary contract:** `LidoOperatorRegistry`
 - **Primary module:** `lido_mcp_server`
-- **Submission status:** implementation ready, waiting for credentials and TxIDs.
+- **Submission status:** audited and offline-demo ready; optional live partner credentials unlock network execution.
 
 ## What this repo does
 
@@ -66,6 +66,30 @@ flowchart TD
 3. Persist a dry-run artifact before any live execution.
 4. Enforce onchain policy through the guarded contract wrapper.
 5. Verify outputs, update receipts, and render submission material.
+
+## Current readiness
+
+- **Latest verification:** `verified` at `2026-03-19T03:52:13+00:00`
+- **Execution mode:** `offline_prepared`
+- **Offline-prepared partners:** Lido MCP Server (prepared_contract_call), MetaMask Delegations (prepared_contract_call)
+- **Live credential blockers:** Ampersend, OpenServ, Bankr Gateway
+- **Audit docs:** `docs/audit.md`, `docs/live_readiness.md`
+
+## Most sensitive actions
+
+- `metamask_delegations_delegate_scope` (MetaMask Delegations, high)
+- `bankr_gateway_compute_route` (Bankr Gateway, high)
+
+## Live blocker details
+
+- **Ampersend** — AMPERSEND_API_KEY, AMPERSEND_PAYMENT_URL — https://docs.ampersend.ai/
+- **OpenServ** — OPENSERV_API_KEY, OPENSERV_AGENT_URL — https://docs.openserv.ai/
+- **Bankr Gateway** — BANKR_API_KEY, BANKR_CHAT_COMPLETIONS_URL, BANKR_MODEL — https://bankr.bot/
+
+## Latest evidence artifacts
+
+- `artifacts/onchain_intents/lido_mcp_server_mcp_call.json`
+- `artifacts/onchain_intents/metamask_delegations_delegate_scope.json`
 
 ## Security controls
 
